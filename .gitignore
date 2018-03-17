@@ -1,0 +1,6 @@
+.tmp/
+node_modules/
+.idea
+dist
+npm-debug.log
+**/components/_icons.sass
