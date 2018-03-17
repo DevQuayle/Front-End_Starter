@@ -1,0 +1,21 @@
+@font-face {
+	font-family: "icons";
+	src: url("../fonts/icons.eot?91afbcbf2fed452cb77c12a3d186d2dd?#iefix") format("embedded-opentype"),
+url("../fonts/icons.woff2?91afbcbf2fed452cb77c12a3d186d2dd") format("woff2"),
+url("../fonts/icons.woff?91afbcbf2fed452cb77c12a3d186d2dd") format("woff");
+}
+
+.icon {
+	line-height: 1;
+}
+
+.icon:before {
+	font-family: icons !important;
+	font-style: normal;
+	font-weight: normal !important;
+	vertical-align: top;
+}
+
+.icon-ikona:before {
+	content: "\f101";
+}

@@ -1,13 +1,34 @@
-@import "components/icons";
+//----------------------------------*\
+// SETTINGS
+//----------------------------------*/
+@charset "UTF-8";
+@import "settings";
 
-body {
-    background-color: red;
-    display: block;
-    background-color: yellow;
-    i{
-        font-size: 250px;
-        color: red;
-        font-weight: 600;
-        cursor: pointer;
-    }
-}
+
+/*!
+	Front-End_Starter
+	License: MIT
+ 	Author: Sławek Król (DevQuayle) < krol.salwek1@gmail.com >
+ 	Repo: https://github.com/DevQuayle/Front-End_Starter
+*/
+
+
+
+//----------------------------------*\
+// VENDOR
+//----------------------------------*/
+
+@import "foundation",
+        "foundationPartials";
+
+
+//----------------------------------*\
+// COMPONENTS
+//----------------------------------*/
+
+@import "stylesheets/abstracts/**/*";
+@import "stylesheets/base/**/*";
+@import "stylesheets/layout/**/*";
+@import "stylesheets/components/**/*";
+@import "stylesheets/pages/**/*";
+@import "stylesheets/themes/**/*";
