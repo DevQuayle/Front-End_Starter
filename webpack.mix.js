@@ -28,9 +28,9 @@ mix.webpackConfig({
     module: {
         rules: [
             {
-                test: /\.scss/,
-                enforce: "pre",
-                loader: "import-glob-loader2"
+                test: /\.scss$/,
+                exclude: [/bower_components/, /node_modules/],
+                loader: "import-glob-loader"
             },
         ]
     }
@@ -40,7 +40,7 @@ mix.webpackConfig({
 mix
     .js('src/assets/js/*.js', 'dist/assets/js/app.js')
     .ts('src/assets/js/*.ts', 'dist/assets/js/app.js')
-    .sass('src/assets/scss/app.scss', 'dist/assets/css',{
+    .sass('src/assets/scss/app.scss', 'dist/assets/css', {
         includePaths: ['node_modules/foundation-sites/scss']
     })
     .copyDirectory('src/assets/img', 'dist/assets/img')
@@ -52,10 +52,15 @@ mix
         processCssUrls: false,
         postCss: [require('autoprefixer')],
         clearConsole: false,
+
     })
     .setPublicPath('dist')
     .disableNotifications();
 
+
+if (mix.inProduction()) {
+    mix.version();
+} else {
     mix.webpackConfig(webpack => {
         return {
             plugins: [
@@ -63,10 +68,6 @@ mix
             ]
         };
     });
-
-if (mix.inProduction()) {
-    mix.version();
-} else {
     mix.browserSync({
         proxy: 'http://localhost',
         files: ['dist/assets/css/*.css', 'dist/assets/js/*.js', 'src/tpl/**/*.twig'],
