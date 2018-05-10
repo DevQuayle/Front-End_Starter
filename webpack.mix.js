@@ -8,7 +8,7 @@ mix.extend('generateFonts', function () {
         files: [
             'src/assets/icons/*.svg',
         ],
-        dest: 'dist/assets/fonts',
+        dest: 'public/assets/fonts',
         fontName: 'icons',
         html: true,
         templateOptions: {
@@ -38,12 +38,12 @@ mix.webpackConfig({
 
 
 mix
-    .js('src/assets/js/*.js', 'dist/assets/js/app.js')
-    .ts('src/assets/js/*.ts', 'dist/assets/js/app.js')
-    .sass('src/assets/scss/app.scss', 'dist/assets/css', {
+    .js('src/assets/js/*.js', 'public/assets/js/app.js')
+    .ts('src/assets/js/*.ts', 'public/assets/js/app.js')
+    .sass('src/assets/scss/app.scss', 'public/assets/css', {
         includePaths: ['node_modules/foundation-sites/scss']
     })
-    .copyDirectory('src/assets/img', 'dist/assets/img')
+    .copyDirectory('src/assets/img', 'public/assets/img')
     .autoload({
         jquery: ['$', 'window.jQuery'],
     })
@@ -54,7 +54,7 @@ mix
         clearConsole: false,
 
     })
-    .setPublicPath('dist')
+    .setPublicPath('public')
     .disableNotifications();
 
 
@@ -70,7 +70,7 @@ if (mix.inProduction()) {
     });
     mix.browserSync({
         proxy: 'http://localhost',
-        files: ['dist/assets/css/*.css', 'dist/assets/js/*.js', 'src/tpl/**/*.twig'],
+        files: ['public/assets/css/*.css', 'public/assets/js/*.js', 'src/tpl/**/*.twig'],
     });
-    mix.sourceMaps();
+    mix.webpackConfig({ devtool: "inline-source-map" }).sourceMaps();
 }
