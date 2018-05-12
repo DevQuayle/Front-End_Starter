@@ -72,5 +72,5 @@ if (mix.inProduction()) {
         proxy: 'http://localhost',
         files: ['public/assets/css/*.css', 'public/assets/js/*.js', 'src/tpl/**/*.twig'],
     });
-    mix.webpackConfig({ devtool: "inline-source-map" }).sourceMaps();
+    // mix.webpackConfig({ devtool: "inline-source-map" }).sourceMaps();
 }

@@ -5,6 +5,7 @@
 @import "settings";
 
 
+
 /*!
 	Front-End_Starter
 	License: MIT
@@ -18,8 +19,10 @@
 // VENDOR
 //----------------------------------*/
 
-@import "foundation",
-        "foundationPartials";
+@import "node_modules/foundation-sites/scss/util/_unit";
+@import "node_modules/foundation-sites/_vendor/normalize-scss/sass/_normalize";
+@import "node_modules/foundation-sites/scss/util/_breakpoint";
+@include normalize();
 
 
 //----------------------------------*\
